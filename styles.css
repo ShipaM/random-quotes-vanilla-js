@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
 }
@@ -21,4 +21,49 @@ button {
 
 button:hover {
   background-color: #0056b3;
+} */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a; /* Dark background color */
+  color: #e0e0e0; /* Light text color for better contrast */
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+h1,
+p,
+.btn {
+  color: #e0e0e0; /* Light text color */
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; /* Blue button color */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.quote {
+  font-style: italic;
+}
+
+.quote::before,
+.quote::after {
+  content: '"';
+}
+
+#author {
+  margin-top: 15px;
 }
