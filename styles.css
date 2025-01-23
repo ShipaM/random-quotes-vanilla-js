@@ -92,3 +92,10 @@ p,
 #toggle-favorite-btn {
   display: none;
 }
+
+.star-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: yellow;
+}
