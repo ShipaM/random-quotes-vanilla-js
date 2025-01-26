@@ -4,6 +4,7 @@ import {
   showFavoriteCard,
   hideFavoriteCard,
 } from "./src/favoritesHandler.js";
+import { generateRandomInt } from "./src/utils.js";
 
 const quoteElement = document.getElementById("quote");
 const quoteِAuthorElement = document.getElementById("quote-author");
@@ -14,28 +15,15 @@ const favoritesContainer = document.getElementById("favorites-container");
 let currentQuoteIndex;
 
 const generateRandomQuote = () => {
-  currentQuoteIndex = Math.floor(Math.random() * quotes.length);
+  const randomIndex = generateRandomInt(quotes.length);
+  const { quote, author, isFavorite } = quotes[randomIndex];
 
-  const currentQuote = quotes[currentQuoteIndex];
-  // const quote = currentQuote.quote;
-  // const quoteAuthor = currentQuote.author;
-
-  const { quote, author } = currentQuote;
+  currentQuoteIndex = randomIndex;
 
   quoteElement.textContent = quote;
   quoteِAuthorElement.textContent = author;
 
-  // if (currentQuote.isFavorite) {
-  //   toggleFavoriteBtn.classList.add("fa");
-  //   toggleFavoriteBtn.classList.remove("far");
-  // } else {
-  //   toggleFavoriteBtn.classList.remove("fa");
-  //   toggleFavoriteBtn.classList.add("far");
-  // }
-  // toggleFavoriteBtn.classList.toggle("fa", currentQuote.isFavorite);
-  // toggleFavoriteBtn.classList.toggle("far", !currentQuote.isFavorite);
-
-  toggleFavoriteIcon(currentQuote.isFavorite, toggleFavoriteBtn);
+  toggleFavoriteIcon(isFavorite, toggleFavoriteBtn);
 
   toggleFavoriteBtn.style.display = "inline-block";
 };
