@@ -89,10 +89,6 @@ p,
   color: darkslategrey;
 }
 
-#toggle-favorite-btn {
-  display: none;
-}
-
 .star-icon {
   width: 30px;
   height: 30px;
