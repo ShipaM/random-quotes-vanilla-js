@@ -20,31 +20,27 @@ export const handleFavorite = (isFavorite) => {
 
 export const toggleFavorite = (quote, btn, container) => {
   quote.isFavorite = !quote?.isFavorite;
-  const { text, author, isFavorite } = quote;
-  toggleFavoriteBtnIcon(isFavorite, btn);
+  toggleFavoriteBtnIcon(quote.isFavorite, btn);
 
-  if (isFavorite) {
-    showFavoriteCard(text, author, container);
+  if (quote.isFavorite) {
+    showFavoriteCard(quote, container);
   } else {
-    hideFavoriteCard(text);
+    hideFavoriteCard(quote.id);
   }
 };
 
-export const showFavoriteCard = (quote, author, container) => {
+export const showFavoriteCard = (quote, container) => {
   const favoriteCard = document.createElement("div");
   favoriteCard.classList.add("favorite-card");
-  favoriteCard.innerHTML = `<p>${quote}</p>
-    <p>${author}</p>`;
+  favoriteCard.dataset.quoteId = quote.id;
+  favoriteCard.innerHTML = `
+    <p>${quote.text}</p>
+    <p>${quote.author}</p>`;
   container.appendChild(favoriteCard);
 };
 
-export const hideFavoriteCard = (quote) => {
-  const favoriteCards = document.querySelectorAll(".favorite-card");
-
-  const processFavoriteCard = (card) => {
-    if (card.textContent.includes(quote)) {
-      card.remove();
-    }
-  };
-  favoriteCards.forEach(processFavoriteCard);
+export const hideFavoriteCard = (id) => {
+  const card = document.querySelector(`.favorite-card[data-quote-id="${id}"]`);
+  // if (card) card.remove();
+  card && card.remove();
 };
