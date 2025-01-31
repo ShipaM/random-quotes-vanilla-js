@@ -4,11 +4,11 @@ import { toggleFavorite, hideFavoriteBtn } from "./src/handlers/favorites.js";
 
 const generateBtn = document.getElementById("generate-btn");
 const favoritesContainer = document.getElementById("favorites-container");
-const favoriteBtn = document.getElementById("favorite-btn");
+const quoteFavoriteBtn = document.getElementById("quote-favorite-btn");
 
 let currentQuote = null;
 
-hideFavoriteBtn(favoriteBtn);
+hideFavoriteBtn();
 
 const setCurrentQuote = (quote) => {
   currentQuote = quote;
@@ -18,8 +18,8 @@ generateBtn.addEventListener("click", () =>
   handleQuote(quotes, setCurrentQuote)
 );
 
-favoriteBtn.addEventListener("click", () =>
-  toggleFavorite(currentQuote, favoriteBtn, favoritesContainer)
+quoteFavoriteBtn.addEventListener("click", () =>
+  toggleFavorite(currentQuote, quoteFavoriteBtn, favoritesContainer)
 );
 
-export { favoriteBtn };
+export { quoteFavoriteBtn };
