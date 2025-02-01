@@ -76,16 +76,12 @@ p,
   font-style: italic;
   min-height: 2.3em;
   margin-block-end: 0.5em;
+  white-space: nowrap;
 }
 
 .quote-author {
   font-weight: bold;
   margin-block-start: 0.5em;
-}
-
-.quote-text::before,
-.quote-text::after {
-  content: '"';
 }
 
 #author {
